@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use function Laravel\Prompts\table;
 
 return new class extends Migration
 {
@@ -11,12 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('potensis', function (Blueprint $table) {
+        Schema::create('gambar_potensis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('u_m_k_m_id')->constrained('u_m_k_m_s');
-            $table->string('nama');
-            $table->integer('harga');
-            $table->string('satuan');
+            $table->foreignId('potensi_id')->constrained();
+            $table->string('gambar');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('potensis');
+        Schema::dropIfExists('gambar_potensis');
     }
 };

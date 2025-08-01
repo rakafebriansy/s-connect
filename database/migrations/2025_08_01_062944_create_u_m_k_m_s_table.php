@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('potensis', function (Blueprint $table) {
+        Schema::create('u_m_k_m_s', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('u_m_k_m_id')->constrained('u_m_k_m_s');
             $table->string('nama');
-            $table->integer('harga');
-            $table->string('satuan');
+            $table->float('longitude');
+            $table->float('latitude');
+            $table->string('nomor_telepon');
+            $table->boolean('terverifikasi');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('potensis');
+        Schema::dropIfExists('u_m_k_m_s');
     }
 };

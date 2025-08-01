@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('pengaduans', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->text('isi');
+            $table->string('dusun');
+            $table->enum('jenis_pengaduan',['umum','fasilitas','sosial']);
             $table->timestamps();
         });
     }
