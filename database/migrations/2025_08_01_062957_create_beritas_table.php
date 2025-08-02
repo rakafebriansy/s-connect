@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('judul');
             $table->string('deskripsi');
             $table->string('gambar');
-            $table->integer('dilihat');
+            $table->integer('dilihat')->default(0);
             $table->timestamps();
         });
     }
