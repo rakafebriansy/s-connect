@@ -17,7 +17,7 @@ return new class extends Migration
             $table->float('longitude');
             $table->float('latitude');
             $table->string('nomor_telepon');
-            $table->boolean('terverifikasi');
+            $table->boolean('terverifikasi')->default(false);
             $table->timestamps();
         });
     }

@@ -9,4 +9,14 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateUMKM extends CreateRecord
 {
     protected static string $resource = UMKMResource::class;
+
+    #[On('set-coordinates')]
+    public function setCoordinates($detail): void
+    {
+        dd($detail);
+        $this->form->fill([
+            'latitude' => $detail['lat'],
+            'longitude' => $detail['lon'],
+        ]);
+    }
 }
