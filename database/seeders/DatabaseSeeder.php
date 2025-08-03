@@ -19,5 +19,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
             'password' => Hash::make('password'),
         ]);
+        $this->call([
+            UMKMSeeder::class,
+            PotensiSeeder::class,
+            GambarPotensiSeeder::class,
+            BeritaSeeder::class
+        ]);
     }
 }
