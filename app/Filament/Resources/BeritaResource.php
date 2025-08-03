@@ -38,6 +38,7 @@ class BeritaResource extends Resource
 
                 Textarea::make('deskripsi')
                     ->required()
+                    ->rows(5)
                     ->maxLength(255),
 
                 FileUpload::make('gambar')
