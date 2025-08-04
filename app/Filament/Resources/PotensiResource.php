@@ -6,15 +6,16 @@ use App\Filament\Resources\PotensiResource\Pages;
 use App\Filament\Resources\PotensiResource\RelationManagers;
 use App\Models\Potensi;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PotensiResource extends Resource
 {
@@ -51,6 +52,20 @@ class PotensiResource extends Resource
                     ->helperText('misalnya: pcs, kg')
                     ->required()
                     ->maxLength(255),
+                Repeater::make('gambar_potensis')
+                    ->label('Gambar Potensi')
+                    ->relationship()
+                    ->schema([
+                        FileUpload::make('gambar')
+                            ->directory('potensi')
+                            ->image()
+                            ->imagePreviewHeight('200')
+                            ->label('Gambar')
+                            ->required(),
+                    ])
+                    ->columns(1)
+                    ->createItemButtonLabel('Tambah Gambar')
+                    ->collapsible(),
             ]);
     }
 
@@ -64,7 +79,7 @@ class PotensiResource extends Resource
                     ->sortable()
                     ->searchable(),
 
-                TextColumn::make('umkm.nama')
+                TextColumn::make('u_m_k_m.nama')
                     ->label('UMKM')
                     ->sortable()
                     ->searchable(),
@@ -80,9 +95,14 @@ class PotensiResource extends Resource
                     ->hidden()
                     ->date('d M Y')
                     ->label('Tanggal Buat'),
+
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
