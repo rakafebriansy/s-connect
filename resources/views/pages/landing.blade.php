@@ -8,7 +8,13 @@
     <!-- Hero Image -->
     <div class="w-full relative">
         <img src="{{ asset('images/landing.webp') }}" alt="" class="w-full h-[60vh] md:h-screen object-cover">
-        <div class="absolute top-0 left-0 w-full h-full bg-black/35"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-black/35">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-bold flex flex-col items-center gap-2">
+                <h1 class="text-5xl shadow-sm">Selamat Datang</h1>
+                <h1 class="text-5xl shadow-sm">Website Resmi Desa Sawaran Lor</h1>
+                <p class="text-xl shadow-sm">Sumber informasi terbaru tentang pemerintahan di Desa Sawaran Lor</p>
+            </div>
+        </div>
     </div>
 
     <!-- Intro Section -->
@@ -36,9 +42,9 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($beritas as $berita)
                 <a href="{{ url('berita/' . $berita->id) }}"
-                   class="block bg-white rounded-xl shadow-md overflow-hidden transition hover:shadow-lg hover:scale-[1.02] duration-300">
+                    class="block bg-white rounded-xl shadow-md overflow-hidden transition hover:shadow-lg hover:scale-[1.02] duration-300">
                     <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}"
-                         class="w-full h-48 object-cover">
+                        class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h2 class="text-lg font-semibold mb-2 line-clamp-2">{{ $berita->judul }}</h2>
                         <p class="text-gray-600 text-sm line-clamp-3 break-words">
