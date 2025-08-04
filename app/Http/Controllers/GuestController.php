@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Pengaduan;
 use App\Models\Potensi;
 use Illuminate\Http\Request;
 
@@ -64,6 +65,24 @@ class GuestController extends Controller
             'luas_wilayah' => '4 Ha',
             'persentase_pertanian' => '80%',
         ]);
+    }
 
+    public function createPengaduan()
+    {
+        return view('pages.pengaduan.create');
+    }
+
+    public function storePengaduan(Request $request)
+    {
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'isi' => 'required|string',
+            'dusun' => 'required|string|max:255',
+            'jenis_pengaduan' => 'required|in:umum,fasilitas,sosial',
+        ]);
+
+        Pengaduan::create($request->only('judul', 'isi', 'dusun', 'jenis_pengaduan'));
+
+        return redirect()->route('pengaduan.create')->with('success', 'Pengaduan berhasil dikirim.');
     }
 }
