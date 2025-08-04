@@ -26,6 +26,21 @@ class GuestController extends Controller
         return view('pages.potensi.index', compact('potensis'));
     }
 
+    public function indexBerita(Request $request)
+    {
+        $query = Berita::query();
+
+        if ($request->has('search')) {
+            $query->where('judul', 'like', '%' . $request->search . '%')
+                ->orWhere('deskripsi', 'like', '%' . $request->search . '%');
+        }
+
+        $beritas = $query->latest()->paginate(6);
+
+        return view('pages.berita.index', compact('beritas'));
+    }
+
+
     public function showBerita($id)
     {
         $berita = Berita::findOrFail($id);
