@@ -21,7 +21,7 @@ class GuestController extends Controller
         ->when($keyword, function ($query, $keyword) {
             $query->where('nama', 'like', "%$keyword%");
         })
-        ->paginate(10);
+        ->paginate(9);
 
     return view('pages.potensi.index', compact('potensis'));
 }
