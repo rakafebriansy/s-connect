@@ -14,17 +14,17 @@ class GuestController extends Controller
         return view('pages.landing', compact('beritas'));
     }
     public function indexPotensi(Request $request)
-{
-    $keyword = $request->search;
+    {
+        $keyword = $request->search;
 
-    $potensis = Potensi::with(['u_m_k_m', 'gambar_potensis'])
-        ->when($keyword, function ($query, $keyword) {
-            $query->where('nama', 'like', "%$keyword%");
-        })
-        ->paginate(9);
+        $potensis = Potensi::with(['u_m_k_m', 'gambar_potensis'])
+            ->when($keyword, function ($query, $keyword) {
+                $query->where('nama', 'like', "%$keyword%");
+            })
+            ->paginate(9);
 
-    return view('pages.potensi.index', compact('potensis'));
-}
+        return view('pages.potensi.index', compact('potensis'));
+    }
 
     public function showBerita($id)
     {
@@ -37,5 +37,18 @@ class GuestController extends Controller
             ->get();
 
         return view('pages.berita.show', compact('berita', 'beritaLain'));
+    }
+
+    public function indexProfil()
+    {
+        return view('pages.profil.index', [
+            'jumlah_penduduk' => 2134,
+            'jumlah_kk' => 800,
+            'jumlah_rt' => 12,
+            'jumlah_rw' => 3,
+            'luas_wilayah' => '4 Ha',
+            'persentase_pertanian' => '80%',
+        ]);
+
     }
 }

@@ -15,7 +15,7 @@
         <div class="flex items-center justify-between px-4 py-4">
             <!-- Logo -->
             <div class="text-xl font-bold text-white">
-                Sawahan Lor
+                Sawaran Lor
             </div>
 
             <!-- Menu Desktop -->
@@ -67,7 +67,7 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Logo dan Deskripsi -->
             <div>
-                <h2 class="text-2xl font-bold mb-2">Sawahan Lor</h2>
+                <h2 class="text-2xl font-bold mb-2">Sawaran Lor</h2>
                 <p class="text-gray-400">Website resmi informasi dan layanan Desa untuk masyarakat. Jelajahi potensi,
                     berita, dan pengaduan secara langsung dari sini.</p>
             </div>
@@ -94,7 +94,7 @@
         </div>
 
         <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-500 text-sm">
-            &copy; {{ date('Y') }} Pemerintah Desa Sawahan Lor. All rights reserved.
+            &copy; {{ date('Y') }} Pemerintah Desa Sawaran Lor. All rights reserved.
         </div>
     </footer>
 
