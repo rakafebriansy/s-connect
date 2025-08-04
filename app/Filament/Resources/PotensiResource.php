@@ -30,7 +30,7 @@ class PotensiResource extends Resource
             ->schema([
                 Select::make('u_m_k_m_id')
                     ->label('UMKM')
-                    ->relationship('umkm', 'nama')
+                    ->relationship('u_m_k_m', 'nama')
                     ->searchable()
                     ->preload()
                     ->required(),

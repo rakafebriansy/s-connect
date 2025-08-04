@@ -13,8 +13,13 @@ class Potensi extends Model
         'satuan',
     ];
 
-    public function umkm()
+    public function u_m_k_m()
     {
-        return $this->belongsTo(UMKM::class,'u_m_k_m_id','id');
+        return $this->belongsTo(UMKM::class);
+    }
+
+    public function gambar_potensis()
+    {
+        return $this->hasMany(GambarPotensi::class);
     }
 }

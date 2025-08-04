@@ -19,7 +19,7 @@ class GambarPotensiSeeder extends Seeder
             for ($i = 0; $i < 3; $i++) {
                 GambarPotensi::create([
                     'potensi_id' => $potensi->id,
-                    'gambar' => 'umkm/dummy_' . $i . '.jpg'
+                    'gambar' => 'potensi/dummy_' . $i + 1 . '.jpg'
                 ]);
             }
         }

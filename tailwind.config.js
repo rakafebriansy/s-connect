@@ -17,4 +17,5 @@ export default {
         },
     },
     plugins: [],
+    safelist: ['bg-blue-800'],
 };
