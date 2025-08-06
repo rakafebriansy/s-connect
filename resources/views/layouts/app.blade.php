@@ -20,11 +20,29 @@
 
             <!-- Menu Desktop -->
             <nav class="hidden lg:flex space-x-8 p-2">
-                <a href="/" class="{{ request()->is('/') ? 'border-b-2 border-white' : '' }} font-bold text-xl text-white outline-none hover:text-blue-300">Home</a>
-                <a href="/profil" class="{{ request()->is('profil') ? 'border-b-2 border-white' : '' }} font-bold text-xl text-white outline-none hover:text-blue-300">Profil</a>
-                <a href="/berita" class="{{ request()->is('berita') ? 'border-b-2 border-white' : '' }} font-bold text-xl text-white outline-none hover:text-blue-300">Berita</a>
-                <a href="/potensi" class="{{ request()->is('potensi') ? 'border-b-2 border-white' : '' }} font-bold text-xl text-white outline-none hover:text-blue-300">Potensi</a>
-                <a href="/pengaduan" class="{{ request()->is('pengaduan') ? 'border-b-2 border-white' : '' }} font-bold text-xl text-white outline-none hover:text-blue-300">Pengaduan</a>
+                <a href="/"
+                    class="{{ request()->is('/') ? 'border-b-2 border-white' : '' }} font-bold text-xl text-white outline-none hover:text-blue-300">Home</a>
+                <a href="/profil"
+                    class="{{ request()->is('profil') ? 'border-b-2 border-white' : '' }} font-bold text-xl text-white outline-none hover:text-blue-300">Profil</a>
+                <a href="/berita"
+                    class="{{ request()->is('berita') ? 'border-b-2 border-white' : '' }} font-bold text-xl text-white outline-none hover:text-blue-300">Berita</a>
+
+                <!-- Dropdown Potensi (Desktop Only) -->
+                <div class="relative" x-data="{ open: false }">
+                    <button @click="open = !open"
+                        class="font-bold text-xl text-white outline-none hover:text-blue-300 focus:outline-none">
+                        Potensi
+                    </button>
+                    <div x-show="open" @mouseenter="open = true" @mouseleave="open = false"
+                        class="absolute bg-white text-gray-800 mt-2 rounded shadow-lg py-2 w-40 z-50"
+                        style="display: none;">
+                        <a href="/potensi" class="block px-4 py-2 hover:bg-blue-100">UMKM</a>
+                        <a href="/wisata" class="block px-4 py-2 hover:bg-blue-100">Wisata</a>
+                    </div>
+                </div>
+
+                <a href="/pengaduan"
+                    class="{{ request()->is('pengaduan') ? 'border-b-2 border-white' : '' }} font-bold text-xl text-white outline-none hover:text-blue-300">Pengaduan</a>
             </nav>
 
             <!-- Hamburger Button -->
@@ -50,11 +68,12 @@
         <!-- Menu Mobile -->
         <div id="mobileMenu"
             class="lg:hidden px-4 pb-4 pt-2 bg-white shadow-md origin-top transform scale-y-0 opacity-0 transition duration-300 ease-out">
-            <a href="/" class="{{ request()->is('/') ? 'border-b-2 border-white' : '' }} font-bold block py-2 text-gray-800 hover:text-blue-300">Home</a>
-            <a href="/profil" class="{{ request()->is('profil') ? 'border-b-2 border-white' : '' }} font-bold block py-2 text-gray-800 hover:text-blue-300">Profil</a>
-            <a href="/berita" class="{{ request()->is('berita') ? 'border-b-2 border-white' : '' }} font-bold block py-2 text-gray-800 hover:text-blue-300">Berita</a>
-            <a href="/potensi" class="{{ request()->is('potensi') ? 'border-b-2 border-white' : '' }} font-bold block py-2 text-gray-800 hover:text-blue-300">Potensi</a>
-            <a href="/pengaduan" class="{{ request()->is('pengaduan') ? 'border-b-2 border-white' : '' }} font-bold block py-2 text-gray-800 hover:text-blue-300">Pengaduan</a>
+            <a href="/" class="font-bold block py-2 text-gray-800 hover:text-blue-300">Home</a>
+            <a href="/profil" class="font-bold block py-2 text-gray-800 hover:text-blue-300">Profil</a>
+            <a href="/berita" class="font-bold block py-2 text-gray-800 hover:text-blue-300">Berita</a>
+            <a href="/potensi" class="font-bold block py-2 text-gray-800 hover:text-blue-300">Potensi UMKM</a>
+            <a href="/wisata" class="font-bold block py-2 text-gray-800 hover:text-blue-300">Potensi Wisata</a>
+            <a href="/pengaduan" class="font-bold block py-2 text-gray-800 hover:text-blue-300">Pengaduan</a>
         </div>
     </header>
 
@@ -105,6 +124,9 @@
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Alpine -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
     <!-- Script Navbar -->
     <script>
