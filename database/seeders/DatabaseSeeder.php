@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             UMKMSeeder::class,
             PotensiSeeder::class,
             GambarPotensiSeeder::class,
+            WisataSeeder::class,
             BeritaSeeder::class
         ]);
     }

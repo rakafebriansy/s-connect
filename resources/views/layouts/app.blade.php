@@ -90,6 +90,7 @@
                 <p class="text-gray-400">Jl. Raya Desa No. 123<br> Kecamatan Contoh, Kabupaten Asli<br>Indonesia</p>
                 <p class="text-gray-400 mt-2">Telp: 0812-3456-7890</p>
                 <p class="text-gray-400">Email: info@desaku.id</p>
+                <a href="/admin/login" class="text-gray-400 mt-2 hover:underline">Administrator</a>
             </div>
         </div>
 
