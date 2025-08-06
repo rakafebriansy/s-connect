@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\Pengaduan;
 use App\Models\Potensi;
+use App\Models\Wisata;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -25,6 +26,18 @@ class GuestController extends Controller
             ->paginate(9);
 
         return view('pages.potensi.index', compact('potensis'));
+    }
+    public function indexWisata(Request $request)
+    {
+        $keyword = $request->search;
+
+        $wisatas = Wisata::with(['gambar_wisatas'])
+            ->when($keyword, function ($query, $keyword) {
+                $query->where('nama', 'like', "%$keyword%");
+            })
+            ->paginate(9);
+
+        return view('pages.wisata.index', compact('wisatas'));
     }
 
     public function indexBerita(Request $request)
