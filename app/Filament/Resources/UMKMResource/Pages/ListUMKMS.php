@@ -13,6 +13,11 @@ class ListUMKMS extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            Actions\Action::make('gformPengajuan')
+                ->label('Pengajuan UMKM')
+                ->icon('heroicon-o-document')
+                ->url(env('GFORM_URL'))
+                ->openUrlInNewTab(),
             Actions\CreateAction::make(),
         ];
     }

@@ -37,6 +37,12 @@
                 </ul>
             </div>
 
+            <!-- Susunan Organisasi -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700">Susunan Organisasi</h2>
+                <img src="{{ asset('images/bagan.png') }}" alt="">
+            </div>
+
             <!-- Peta Lokasi -->
             <div class="mb-12">
                 <h2 class="text-2xl font-semibold mb-4 text-blue-700">Peta Lokasi Desa</h2>
