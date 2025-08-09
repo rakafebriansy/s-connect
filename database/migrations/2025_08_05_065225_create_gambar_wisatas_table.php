@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('gambar_wisatas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('wisata_id')->constrained();
+            $table->foreignId('wisata_id')->constrained()->onDelete('cascade');
             $table->string('gambar');
             $table->timestamps();
         });
